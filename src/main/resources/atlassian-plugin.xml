@@ -1,0 +1,24 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+        <param name="atlassian-data-center-compatible">true</param>
+    </plugin-info>
+    <resource key="images" name="images/" type="download" location="images/"/>
+    <resource type="i18n" name="i18n" location="markdown"/>
+    <xhtml-macro name="markdown-macro" class="com.csharpru.markdown.MarkdownMacro" key="markdown-macro"
+                 icon="/download/resources/${atlassian.plugin.key}/images/pluginLogo.png">
+        <description>Simple Markdown powered by PegDown</description>
+        <category name="formatting"/>
+        <parameters>
+            <parameter name="enable-pegdown-extensions" type="boolean" default="true">
+                <option key="showNameInPlaceholder" value="true"/>
+                <option key="showValueInPlaceholder" value="true"/>
+            </parameter>
+        </parameters>
+    </xhtml-macro>
+    <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>
+</atlassian-plugin>
